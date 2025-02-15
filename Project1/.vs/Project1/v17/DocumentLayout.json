@@ -1,37 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\hyeonseok\\Cproject\\Project1\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{38DD3ED2-2B9B-4E86-8A42-A2FEDD5A6986}|Project1.vcxproj|C:\\hyeonseok\\Cproject\\Project1\\\uC5F0\uC0B0\uC7902.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{38DD3ED2-2B9B-4E86-8A42-A2FEDD5A6986}|Project1.vcxproj|solutionrelative:\uC5F0\uC0B0\uC7902.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "\uC5F0\uC0B0\uC7902.c",
-              "DocumentMoniker": "C:\\hyeonseok\\Cproject\\Project1\\\uC5F0\uC0B0\uC7902.c",
-              "RelativeDocumentMoniker": "\uC5F0\uC0B0\uC7902.c",
-              "ToolTip": "C:\\hyeonseok\\Cproject\\Project1\\\uC5F0\uC0B0\uC7902.c",
-              "RelativeToolTip": "\uC5F0\uC0B0\uC7902.c",
-              "ViewState": "AQIAADYAAAAAAAAAAAAAAFIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-02-15T01:01:33.049Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }
