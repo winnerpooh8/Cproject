@@ -1,30 +1,30 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-//C¾ð¾î¿¡¼­ÀÇ ¹è¿­
-//ÀÚ·áÇü ¹è¿­¸í[±æÀÌ];
+//Cì–¸ì–´ì—ì„œì˜ ë°°ì—´
+//ìžë£Œí˜• ë°°ì—´ëª…[ê¸¸ì´];
 
-//¹è¿­¿¡ °ª ¿ä¼Ò( : element)À» ³Ö´Â ¹æ¹ý
-//¹è¿­¸í[ÀÎµ¦½º] = °ª
-//ÀÎµ¦½ºÀÇ ¹üÀ§ = 0ºÎÅÍ ¹è¿­ÀÇ ±æÀÌ -1±îÁöÀÇ ¹üÀ§
+//ë°°ì—´ì— ê°’ ìš”ì†Œ( : element)ì„ ë„£ëŠ” ë°©ë²•
+//ë°°ì—´ëª…[ì¸ë±ìŠ¤] = ê°’
+//ì¸ë±ìŠ¤ì˜ ë²”ìœ„ = 0ë¶€í„° ë°°ì—´ì˜ ê¸¸ì´ -1ê¹Œì§€ì˜ ë²”ìœ„
 
 
-//¹è¿­ÀÇ ±æÀÌ¸¦ ±¸ÇÏ´Â ¹æ¹ý
-//sizeof(¹è¿­¸í) / (sizeof(ÀÚ·á¸í);
-// 
-//¹è¿­ÀÇ Å©±â¸¦ ±¸ÇÏ´Â ¹æ¹ý
-//sizeof(¹è¿­¸í);
+//ë°°ì—´ì˜ ê¸¸ì´ë¥¼ êµ¬í•˜ëŠ” ë°©ë²•
+//sizeof(ë°°ì—´ëª…) / (sizeof(ìžë£Œëª…);
+
+//ë°°ì—´ì˜ í¬ê¸°ë¥¼ êµ¬í•˜ëŠ” ë°©ë²•
+//sizeof(ë°°ì—´ëª…);
 
 int main()
 {
 	int iArray[5]; //0 ~ 4
-	int iArray[0] = 1;//iArryÀÇ 0¹øÂ° ¿ä¼Ò´Â 1ÀÌ µË´Ï´Ù.
+	int iArray[0] = 1;//iArryì˜ 0ë²ˆì§¸ ìš”ì†ŒëŠ” 1ì´ ë©ë‹ˆë‹¤.
 	int iArray[1] = 2;
 	int iArray[2] = 3;
 	int iArary[3] = 4;
 	int iArray[4] = 5;
 
-	printf("¹è¿­ iArry°¡ °¡Áö°í ÀÖ´Â ¿ä¼Ò :");
+	printf("ë°°ì—´ iArryê°€ ê°€ì§€ê³  ìžˆëŠ” ìš”ì†Œ :");
 	for (int i = 0; i < 5; i++)
 	{
 		printf("%d", iArray[1]);
@@ -34,17 +34,17 @@ int main()
 
 	int size = sizeof(iArray);
 
-	printf("¹è¿­ÀÇ Å©±â : %d\n", size);
+	printf("ë°°ì—´ì˜ í¬ê¸° : %d\n", size);
 
 	int length = sizeof(iArray) / sizeof(int);
-	printf("¹è¿­ÀÇ ±æÀÌ : %d\n", length);
-	printf("¹è¿­ÀÇ ÀÌ¸§ : %p\n", iArray);
+	printf("ë°°ì—´ì˜ ê¸¸ì´ : %d\n", length);
+	printf("ë°°ì—´ì˜ ì´ë¦„ : %p\n", iArray);
 
-	//¹è¿­Àº °°Àº ÇüÅÂÀÇ µ¥ÀÌÅÍ¸¦ ¹­¾î¼­ µû·Î °ü¸®ÇÏ´Â µ¥ÀÌÅÍ ÀÔ´Ï´Ù.
-	//°¢ ¹è¿­ÀÇ ¿ä¼Ò´Â ÀÏÁ¤ÇÑ °£°ÝÀ¸·Î ÁÖ¼Ò¸¦ °¡Áö°Ô µË´Ï´Ù.
-	//¹è¿­ÀÇ Ã¹¹øÂ° ¿ä¼ÒÀÇ ÁÖ¼Ò´Â ¹è¿­ÀÇ ½ÃÀÛ ÁÖ¼Ò´Â ¹è¿­ÀÇ ÀÌ¸§ÀÔ´Ï´Ù.
-	//¹è¿­Àº ¼±¾ð°ú µ¿½Ã¿¡ µ¥ÀÌÅÍ¸¦ ÀúÀåÇÒ ¿¬¼ÓÀûÀÎ ¸Þ¸ð¸® ÀúÀå °ø°£À» °¡Áö°Ô µË´Ï´Ù.
-	//¹è¿­Àº ÁöÁ¤µÇ´Â °ªÀ¸·Î, ÁÖ¼Ò¿¡ ´ëÇÑ º¯°æÀ» ÁøÇàÇÒ ¼ö ¾ø½À´Ï´Ù.(¼öÁ¤ ºÒ°¡´ÉÇÑ µ¥ÀÌÅÍ)
+	//ë°°ì—´ì€ ê°™ì€ í˜•íƒœì˜ ë°ì´í„°ë¥¼ ë¬¶ì–´ì„œ ë”°ë¡œ ê´€ë¦¬í•˜ëŠ” ë°ì´í„° ìž…ë‹ˆë‹¤.
+	//ê° ë°°ì—´ì˜ ìš”ì†ŒëŠ” ì¼ì •í•œ ê°„ê²©ìœ¼ë¡œ ì£¼ì†Œë¥¼ ê°€ì§€ê²Œ ë©ë‹ˆë‹¤.
+	//ë°°ì—´ì˜ ì²«ë²ˆì§¸ ìš”ì†Œì˜ ì£¼ì†ŒëŠ” ë°°ì—´ì˜ ì‹œìž‘ ì£¼ì†ŒëŠ” ë°°ì—´ì˜ ì´ë¦„ìž…ë‹ˆë‹¤.
+	//ë°°ì—´ì€ ì„ ì–¸ê³¼ ë™ì‹œì— ë°ì´í„°ë¥¼ ì €ìž¥í•  ì—°ì†ì ì¸ ë©”ëª¨ë¦¬ ì €ìž¥ ê³µê°„ì„ ê°€ì§€ê²Œ ë©ë‹ˆë‹¤.
+	//ë°°ì—´ì€ ì§€ì •ë˜ëŠ” ê°’ìœ¼ë¡œ, ì£¼ì†Œì— ëŒ€í•œ ë³€ê²½ì„ ì§„í–‰í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.(ìˆ˜ì • ë¶ˆê°€ëŠ¥í•œ ë°ì´í„°)
 
 
 
