@@ -359,7 +359,7 @@ int main()
 > 예를 들어, int* ptr_value = &value;에서 ptr_value는 변수 value의 주소를 가리킵니다.
 
 # 포인터의 주요 연산자
-+ * (Asterisk) 연산자
++ *(Asterisk) 연산자
 + 역할:
 > 1. 곱셈 연산: 숫자끼리 곱셈을 수행할 때 사용합니다.
 > 2. 포인터 선언 및 간접 참조:
@@ -370,7 +370,7 @@ int main()
 > *ptr_value = 7; // 포인터를 통해 value의 값을 7로 변경
 > printf("%d", *ptr_value); // value의 값 출력 (7)
 
-# & (Ampersand) 연산자
++ &(Ampersand) 연산자
 + 역할:
 + 주소 연산자: 변수 앞에 사용하여 해당 변수의 메모리 주소를 반환합니다.
 > 예: &value는 변수 value의 주소를 의미합니다.
