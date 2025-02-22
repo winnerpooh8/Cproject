@@ -1,45 +1,12 @@
 # Cproject
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1  2  3
-6  5  4
-7  8  9
 #include <stdio.h>
 
 int main() {
     int value3[3][3];  // 3x3 배열 선언 (초기화 없이 선언)
     int value = 1;
+    
+    // 열(column) 단위로 값 채우기
     for (int col = 0; col < 3; col++) {
         if (col % 2 == 0) { // 짝수 열: 위에서 아래로 채우기
             for (int row = 0; row < 3; row++) {
@@ -51,17 +18,19 @@ int main() {
             }
         }
     }
+    
+    // 출력 (행(row) 단위가 아니라, 인덱스 교환하여 열 기준으로 출력)
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             printf("%2d ", value3[j][i]);
         }
         printf("\n");
     }
-      return 0;
+    
+    return 0;
 }
-1  2  3
-8  9  4
-7  6  5
+
+
 
 #include <stdio.h>
 
@@ -70,8 +39,8 @@ int main() {
     int value = 1;
     int n = 3;
     
-  
-   for (int j = 0; j < n; j++) {
+    // 1. 상단 행 채우기 (왼쪽 -> 오른쪽)
+    for (int j = 0; j < n; j++) {
         value3[0][j] = value++;
     }
     // 2. 오른쪽 열 채우기 (위 -> 아래, 첫 행 제외)
@@ -90,6 +59,8 @@ int main() {
     if (n % 2 == 1) {
         value3[n/2][n/2] = value++;
     }
+    
+    // 출력 (행(row) 단위로 출력)
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             printf("%2d ", value3[i][j]);
@@ -97,8 +68,6 @@ int main() {
         printf("\n");
     }
     
-  return 0;
+    return 0;
 }
-
-
  2025-02-08~2025-03-15 project
