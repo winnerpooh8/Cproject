@@ -596,15 +596,16 @@ X^2 - 2 = 2를 풀이하시오.
 주어진 숫자가 소수인지 판별하는 함수 getprime을 구현하세요.
 해설: 소수는 1과 자기 자신 외에 약수가 없는 숫자입니다. 예를 들어, 2, 3, 5는 소수지만 4는 소수가 아닙니다.
 
-C
-# include <stdio.h>
-# include <stdarg.h>
-# include <math.h>
+#include <stdio.h>
+#include <stdarg.h>
+#include <math.h>
 
- // 2차 방정식 근의 공식 함수
-float Quadformula(double a, double b, double c) {
+// 2차 방정식 근의 공식 함수
+float Quadformula(double a, double b, double c) 
+{
     double discriminant = b * b - 4 * a * c;
-    if (discriminant < 0) {
+    if (discriminant < 0) 
+    {
         printf("실근이 존재하지 않습니다.\n");
         return -1;
     } else {
@@ -614,83 +615,103 @@ float Quadformula(double a, double b, double c) {
 
 // 순위 출력 함수
 void printrank(int rank) {
-    if (rank % 10 == 1 && rank != 11) {
+    if (rank % 10 == 1 && rank != 11) 
+    {
         printf("%dst\n", rank);
-    } else if (rank % 10 == 2 && rank != 12) {
+	} 
+     else if (rank % 10 == 2 && rank != 12) 
+    {
         printf("%dnd\n", rank);
-    } else if (rank % 10 == 3 && rank != 13) {
+    } 
+    else if (rank % 10 == 3 && rank != 13) 
+    {
         printf("%drd\n", rank);
-    } else {
+    } 
+    else 
+    {
         printf("%dth\n", rank);
     }
 }
 
 // 평균 구하는 함수
-float average(int count, ...) {
+float average(int count, ...) 
+{
     va_list args;
     va_start(args, count);
     int sum = 0;
-    for (int i = 0; i < count; i++) {
+    for (int i = 0; i < count; i++) 
+    {
         sum += va_arg(args, int);
     }
     va_end(args);
     return (float)sum / count;
-}
+    }
 
 // 홀수 판별 함수
-void isodd(int num) {
-    if (num % 2 != 0) {
+void isodd(int num) 
+{
+    if (num % 2 != 0) 
+    {
         printf("YES\n");
-    } else {
+    } 
+    else 
+    {
         printf("NO\n");
     }
 }
 
 // 소수 판별 함수
-int getprime(int num) {
+int getprime(int num) 
+{
     if (num <= 1) return 0;
-    for (int i = 2; i <= sqrt(num); i++) {
-        if (num % i == 0) {
+    for (int i = 2; i <= sqrt(num); i++) 
+    {
+        if (num % i == 0) 
+	{
             return 0;
         }
     }
     return 1;
-}
+    }
 
 int main() {
     printf("root 4 %.2f\n", sqrt(4));
 
-    double a = 1;
-    double b = 2;
-    double c = 3;
-    float result = Quadformula(a, b, c);
+double a = 1;
+double b = 2;
+double c = 3;
+ float result = Quadformula(a, b, c);
 
-    int rank = 1;
-    printrank(rank);
-    rank = 2;
-    printrank(rank);
-    rank = 3;
-    printrank(rank);
+int rank = 1;
+printrank(rank);
+rank = 2;
+printrank(rank);
+rank = 3;
+printrank(rank);
 
-    float result1 = average(3, 100, 95, 90);
-    float result2 = average(4, 100, 95, 90, 90);
-    printf("Average 1: %.2f\n", result1);
-    printf("Average 2: %.2f\n", result2);
+float result1 = average(3, 100, 95, 90);
+float result2 = average(4, 100, 95, 90, 90);
+printf("Average 1: %.2f\n", result1);
+printf("Average 2: %.2f\n", result2);
 
-    isodd(3);
-    isodd(4);
-    isodd(5);
+isodd(3);
+isodd(4);
+isodd(5);
 
-    for (int i = 1; i <= 10; i++) {
-        if (getprime(i) == 1) {
-            printf("%d는 소수입니다.\n", i);
-        } else {
-            printf("%d는 소수가 아닙니다.\n", i);
-        }
-    }
-
-    return 0;
+for (int i = 1; i <= 10; i++) 
+{
+if (getprime(i) == 1) 
+{
+printf("%d는 소수입니다.\n", i);
 }
+
+else 
+{
+printf("%d는 소수가 아닙니다.\n", i);
+}
+}
+ return 0;
+    }
 
 
 
