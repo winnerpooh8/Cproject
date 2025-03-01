@@ -7,7 +7,7 @@
 
 # 깃허브 데스크톱
 
-+ 설치방법
+* 설치방법
  > https://desktop.github.com/download/
 
 <hr/>
