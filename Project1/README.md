@@ -505,22 +505,24 @@ printf("배열의 요소 개수: %d\n", sizeof(arr) / sizeof(arr[0]));
 + 여러 함수 호출 예제를 포함하고 있습니다.
   
 + 예제: main 함수
+  
+  ```c
+ int main()
+ {
+ sample();
+ add(1, 5);
+ 
+ int a = 7;
+ setAvalue(a, 10);
+ printf("a = %d\n", a); // 출력: a = 7
+ 
+ setAvalue2(&a, 10);
+ printf("a = %d\n", a); // 출력: a = 10
+ 
+ return 0;
+ } ```
 
-> int main()
-> {
-> sample();
-> add(1, 5);
-> 
-> int a = 7;
-> setAvalue(a, 10);
-> printf("a = %d\n", a); // 출력: a = 7
-> 
-> setAvalue2(&a, 10);
-> printf("a = %d\n", a); // 출력: a = 10
-> 
-> return 0;
-> }
--> sample() 함수를 호출하여 Hello를 출력합니다.
+  -> sample() 함수를 호출하여 Hello를 출력합니다.
 -> add(1, 5) 함수를 호출하여 1과 5를 더한 결과를 출력합니다.
 -> setAvalue(a, 10) 함수를 호출하여 a의 값을 변경하려 하지만, 값에 의한 호출이므로 a의 값은 변경되지 않습니다.
 -> setAvalue2(&a, 10) 함수를 호출하여 a의 값을 참조에 의한 호출로 변경합니다. 따라서 a의 값은 10으로 변경됩니다.
@@ -596,6 +598,7 @@ X^2 - 2 = 2를 풀이하시오.
 주어진 숫자가 소수인지 판별하는 함수 getprime을 구현하세요.
 해설: 소수는 1과 자기 자신 외에 약수가 없는 숫자입니다. 예를 들어, 2, 3, 5는 소수지만 4는 소수가 아닙니다.
 
+ ```c
 #include <stdio.h>
 #include <stdarg.h>
 #include <math.h>
@@ -711,53 +714,8 @@ printf("%d는 소수가 아닙니다.\n", i);
 }
 }
  return 0;
-    }
+    }```
 
-
-
-
-double a = 1;
-double b = 2;
-double c = 3;
-
-float result = Quadformula(a, b, c);
-//��Ʈ : 2�� �������� Ǯ�����ؼ� ���� ������ �̿��� ���ϴ�.
-
-int rank= 1;
-printrank();// 1rd
-rank =  2;
-printrank(rank); // 2rd
-rank = 3;
-printrank(rank); //3rd
-
-//1st,2nd 3nd, 4th, ...21st
-
-//3. ���� ������ �����ϴ� average�� �����ϼ���
-float result = average(3, 100, 95, 90); //95.00
-float result2 = average(4,100,95,90,90); //91.25
-//��Ʈ) printf("%.2f,value);�� Ȱ���ϸ� �Ҽ��� 2�ڸ����� ���� ����
-
-//4. ���� ������ �����ϴ� isodd�� �����ϼ���
-isodd(3); // YES
-isodd(4); // NO
-isodd(5); // YES
-
-//5. ���� ������ �����ϴ� getprime�� �����Ͻÿ�.
-
-for (int i = 1; i <= 10; i++)
-{
-	if (getprime(i) == 1)
-	{
-		print("�� ���� �Ҽ��Դϴ�.\n");
-	}
-	else
-	{
-		printf("�� ���� �Ҽ��� �ƴմϴ�.\n");
-	}
-
-}
-
-return 0;
 
 
 
