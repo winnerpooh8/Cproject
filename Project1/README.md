@@ -567,9 +567,131 @@ printf("배열의 요소 개수: %d\n", sizeof(arr) / sizeof(arr[0]));
 > int arr[] = { 1, 2, 3, 4, 5 };로 배열을 선언하고,
 > printArray(arr, 5);와 printArrayptr(arr, 5);로 배열의 요소를 출력합니다.
 
+# 함수 연습문제 풀이
+
++ 2차 방정식 풀기:
+
+X^2 - 2 = 2를 풀이하시오.
+힌트: 2차 방정식을 풀기 위해선 근의 공식을 이용합니다.
+해설: 2차 방정식은 보통 ax^2 + bx + c = 0 형태로 주어집니다. 여기서 a, b, c는 상수입니다. 근의 공식은 x = (-b ± sqrt(b^2 - 4ac)) / 2a 입니다. 이를 이용해 문제를 풉니다.
+
++ 순위 출력하기:
+
+주어진 숫자에 순위에 맞는 접미사(st, nd, rd, th)를 붙여 출력합니다.
+해설: 숫자 뒤에 붙는 접미사는 영어로 순위를 나타내는 방식입니다. 예를 들어, 1st, 2nd, 3rd, 4th와 같이 숫자에 따라 다르게 붙습니다.
+
++평균 구하기:
+
+주어진 숫자들의 평균을 구하는 함수 average를 구현하세요.
+힌트: printf를 활용하면 소수점 2자리까지 출력 가능.
+해설: 평균은 주어진 숫자들의 합을 숫자의 개수로 나눈 값입니다. 이를 함수로 구현하여, 소수점 2자리까지 출력합니다.
+
++홀수 판별하기:
+
+주어진 숫자가 홀수인지 판별하는 함수 isodd를 구현하세요.
+해설: 숫자가 2로 나누어 떨어지지 않으면 홀수입니다. 예를 들어, 3은 홀수, 4는 짝수입니다.
+
++ 소수 판별하기:
+
+주어진 숫자가 소수인지 판별하는 함수 getprime을 구현하세요.
+해설: 소수는 1과 자기 자신 외에 약수가 없는 숫자입니다. 예를 들어, 2, 3, 5는 소수지만 4는 소수가 아닙니다.
+이제 각 문제를 해결하기 위한 코드를 작성해 보겠습니다.
 
 
+#include <stdio.h>
+#include <stdarg.h>
+#include <math.h>
 
+// 2차 방정식 근의 공식 함수
+float Quadformula(double a, double b, double c) {
+    double discriminant = b * b - 4 * a * c;
+    if (discriminant < 0) {
+        printf("실근이 존재하지 않습니다.\n");
+        return -1;
+    } else {
+        return (-b + sqrt(discriminant)) / (2 * a);
+    }
+}
+
+// 순위 출력 함수
+void printrank(int rank) {
+    if (rank % 10 == 1 && rank != 11) {
+        printf("%dst\n", rank);
+    } else if (rank % 10 == 2 && rank != 12) {
+        printf("%dnd\n", rank);
+    } else if (rank % 10 == 3 && rank != 13) {
+        printf("%drd\n", rank);
+    } else {
+        printf("%dth\n", rank);
+    }
+}
+
+// 평균 구하는 함수
+float average(int count, ...) {
+    va_list args;
+    va_start(args, count);
+    int sum = 0;
+    for (int i = 0; i < count; i++) {
+        sum += va_arg(args, int);
+    }
+    va_end(args);
+    return (float)sum / count;
+}
+
+// 홀수 판별 함수
+void isodd(int num) {
+    if (num % 2 != 0) {
+        printf("YES\n");
+    } else {
+        printf("NO\n");
+    }
+}
+
+// 소수 판별 함수
+int getprime(int num) {
+    if (num <= 1) return 0;
+    for (int i = 2; i <= sqrt(num); i++) {
+        if (num % i == 0) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+int main() {
+    printf("root 4 %.2f\n", sqrt(4));
+
+    double a = 1;
+    double b = 2;
+    double c = 3;
+    float result = Quadformula(a, b, c);
+
+    int rank = 1;
+    printrank(rank);
+    rank = 2;
+    printrank(rank);
+    rank = 3;
+    printrank(rank);
+
+    float result1 = average(3, 100, 95, 90);
+    float result2 = average(4, 100, 95, 90, 90);
+    printf("Average 1: %.2f\n", result1);
+    printf("Average 2: %.2f\n", result2);
+
+    isodd(3);
+    isodd(4);
+    isodd(5);
+
+    for (int i = 1; i <= 10; i++) {
+        if (getprime(i) == 1) {
+            printf("%d는 소수입니다.\n", i);
+        } else {
+            printf("%d는 소수가 아닙니다.\n", i);
+        }
+    }
+
+    return 0;
+}
 
 
 
