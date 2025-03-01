@@ -101,9 +101,9 @@ int main()
  +선언과 초기화를 통시에 여러개를 진행 할 수 있습니다.
 		> int number3 = 50, number4 = 40;
   
-	+ C언어에서 10진수 이외의 8진수나 16진수를 지정할 수 있습니다.
-	> int octo = 15; // 숫자 앞에 0이 붙으면 8진수
-	> int hexa = 0x6; //숫자앞에 0x가 붙으면 16진수
++ C언어에서 10진수 이외의 8진수나 16진수를 지정할 수 있습니다.
+> int octo = 15; // 숫자 앞에 0이 붙으면 8진수
+> int hexa = 0x6; //숫자앞에 0x가 붙으면 16진수
  
 <hr/>
 
@@ -299,25 +299,30 @@ int main()
 # ex 코드 설명
 
 + 1차원 배열 예시
+```c
 int arr[8] = {0, 1, 2, 3, 4, 5, 6, 7};
 printf("배열의 크기: %d\n", sizeof(arr));
 printf("배열의 요소 개수: %d\n", sizeof(arr) / sizeof(arr[0]));
+```
 >> 크기: sizeof(arr) → 배열 전체 바이트 수
 >> 요소 개수: sizeof(arr) / sizeof(arr[0])
 
 <hr/>
 
 + 2차원 배열 예시
+ ```c
 > int arr2D[2][3] = 
 > {
 >     {1, 2, 3},
 >     {4, 5, 6}
 > };
 >> 2행 3열 → 요소 총 6개
+ ```
 
 <hr/>
 
 + 반복문으로 2차원 배열 출력
+ ```c
 > for (int i = 0; i < 2; i++) 
 > {
 > for (int j = 0; j < 3; j++) 
@@ -327,7 +332,7 @@ printf("배열의 요소 개수: %d\n", sizeof(arr) / sizeof(arr[0]));
 >  printf("\n");
 > }
 > i가 행, j가 열을 나타내며, 모든 칸을 순서대로 출력합니다.
-
+ ```
 <hr/>
 
 + 정리
@@ -367,8 +372,10 @@ printf("배열의 요소 개수: %d\n", sizeof(arr) / sizeof(arr[0]));
 > 2-2간접 참조 연산자로 사용하면, 포인터가 가리키는 메모리 위치의 실제 값을 가져옵니다.
 
 + 예시:
-> *ptr_value = 7; // 포인터를 통해 value의 값을 7로 변경
-> printf("%d", *ptr_value); // value의 값 출력 (7)
+ ```c
+ *ptr_value = 7; // 포인터를 통해 value의 값을 7로 변경
+ printf("%d", *ptr_value); // value의 값 출력 (7)
+ ```
 
 + &(Ampersand) 연산자
 + 역할:
@@ -384,12 +391,14 @@ printf("배열의 요소 개수: %d\n", sizeof(arr) / sizeof(arr[0]));
 > 사용 예시:
 > 초기에는 value의 값이 100이며, 포인터를 통해 값을 읽어올 수 있습니다.
 > *ptr_value를 통해 간접적으로 value에 접근할 수 있고, 이를 수정하면 실제 변수의 값도 변경됩니다.
->>  value = 5;
->> printf("value 의 값: %d\n", value);         // 출력: 5
->> printf("ptr_value 의 값: %d\n", *ptr_value);   // 출력: 5
+ ```c
+  value = 5;
+ printf("value 의 값: %d\n", value);         // 출력: 5
+ printf("ptr_value 의 값: %d\n", *ptr_value);   // 출력: 5
 
-> *ptr_value = 7;
-> printf("value 의 값: %d\n", value);           // 출력: 7
+ *ptr_value = 7;
+ printf("value 의 값: %d\n", value);           // 출력: 7
+ ```
 
 # 이중 및 삼중 포인터
 포인터는 다른 포인터의 주소를 저장할 수 있으며, 이를 통해 다단계 간접 참조가 가능합니다.
@@ -433,19 +442,22 @@ printf("배열의 요소 개수: %d\n", sizeof(arr) / sizeof(arr[0]));
 > 기능: 두 매개변수의 합을 계산하여 반환합니다.
 > 반환값: a와 b의 합
 
->> int add(int a, int b) {
->>    int result = a + b;
->>    return result;
->> }
-
+ ```c
+ int add(int a, int b) {
+    int result = a + b;
+    return result;
+ }
+ ```
 + sub 함수
 > 매개변수: int a, int b
 > 기능: 두 매개변수의 차를 계산하여 반환합니다.
 > 반환값: a와 b의 차
->> int sub(int a, int b)
->> {
->> return a - b;
->> }
+ ```c
+ int sub(int a, int b)
+ {
+ return a - b;
+ }
+ ```
 
 + main 함수
 > add 및 sub 함수를 호출하여 결과를 출력합니다.
@@ -453,15 +465,15 @@ printf("배열의 요소 개수: %d\n", sizeof(arr) / sizeof(arr[0]));
 > sub(10, 5) 호출: a와 b의 값은 각각 10과 5, 결과는 5.
 > printf 함수로 결과 출력: c와 d의 값 출력.
 
-
->> int main()
->> {
->> int c = add(2, 7);
->> int d = sub(10, 5);
->> printf("%d %d", c, d);
->> return 0;
->> }
-
+ ```c
+ int main()
+ {
+ int c = add(2, 7);
+ int d = sub(10, 5);
+ printf("%d %d", c, d);
+ return 0;
+ }
+ ```
 
 # void 함수
 > 반환 타입이 void인 함수를 의미합니다.
@@ -478,18 +490,22 @@ printf("배열의 요소 개수: %d\n", sizeof(arr) / sizeof(arr[0]));
 > 매개변수로 정수형 변수를 가지는 함수와 정수 포인터 변수를 가지는 함수로 나뉩니다.
 
 + 예제: add 함수
+```c
  void add(int a, int b)
  {
  int result = a + b;
  printf("result = %d \n", result);
  }
+```
 -> 두 정수 a와 b를 더한 결과를 출력합니다.
 
 + 예제: setAvalue 함수 (Call by Value)
-> void setAvalue(int a, int value)
-> {
-> a = value;
-> }
+ ```c
+ void setAvalue(int a, int value)
+ {
+ a = value;
+ }
+ ```
 -> 정수형 변수 a에 value 값을 설정합니다.
 -> 값에 의한 호출(Call by Value)이므로 함수 종료 후 원본 변수는 변경되지 않습니다.
 
@@ -506,7 +522,7 @@ printf("배열의 요소 개수: %d\n", sizeof(arr) / sizeof(arr[0]));
   
 + 예제: main 함수
   
-  ```c
+```c
  int main()
  {
  sample();
@@ -520,7 +536,8 @@ printf("배열의 요소 개수: %d\n", sizeof(arr) / sizeof(arr[0]));
  printf("a = %d\n", a); // 출력: a = 10
  
  return 0;
- } ```
+ } 
+ ```
 
   -> sample() 함수를 호출하여 Hello를 출력합니다.
 -> add(1, 5) 함수를 호출하여 1과 5를 더한 결과를 출력합니다.
@@ -714,7 +731,8 @@ printf("%d는 소수가 아닙니다.\n", i);
 }
 }
  return 0;
-    }```
+  }
+```
 
 
 
