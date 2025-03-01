@@ -596,11 +596,12 @@ X^2 - 2 = 2를 풀이하시오.
 주어진 숫자가 소수인지 판별하는 함수 getprime을 구현하세요.
 해설: 소수는 1과 자기 자신 외에 약수가 없는 숫자입니다. 예를 들어, 2, 3, 5는 소수지만 4는 소수가 아닙니다.
 
-#include <stdio.h>
-#include <stdarg.h>
-#include <math.h>
+C
+# include <stdio.h>
+# include <stdarg.h>
+# include <math.h>
 
-// 2차 방정식 근의 공식 함수
+ // 2차 방정식 근의 공식 함수
 float Quadformula(double a, double b, double c) {
     double discriminant = b * b - 4 * a * c;
     if (discriminant < 0) {
