@@ -299,9 +299,9 @@ int main()
 # ex 코드 설명
 
 + 1차원 배열 예시
-> int arr[8] = {0, 1, 2, 3, 4, 5, 6, 7};
-> printf("배열의 크기: %d\n", sizeof(arr));
-> printf("배열의 요소 개수: %d\n", sizeof(arr) / sizeof(arr[0]));
+int arr[8] = {0, 1, 2, 3, 4, 5, 6, 7};
+printf("배열의 크기: %d\n", sizeof(arr));
+printf("배열의 요소 개수: %d\n", sizeof(arr) / sizeof(arr[0]));
 >> 크기: sizeof(arr) → 배열 전체 바이트 수
 >> 요소 개수: sizeof(arr) / sizeof(arr[0])
 
@@ -318,15 +318,15 @@ int main()
 <hr/>
 
 + 반복문으로 2차원 배열 출력
-> for (int i = 0; i < 2; i++) 
-> {
-> for (int j = 0; j < 3; j++) 
-> {
-> printf("%d ", arr2D[i][j]);
-> }
->  printf("\n");
-> }
->> i가 행, j가 열을 나타내며, 모든 칸을 순서대로 출력합니다.
+ for (int i = 0; i < 2; i++) 
+ {
+ for (int j = 0; j < 3; j++) 
+ {
+ printf("%d ", arr2D[i][j]);
+ }
+  printf("\n");
+ }
+> i가 행, j가 열을 나타내며, 모든 칸을 순서대로 출력합니다.
 
 <hr/>
 
@@ -442,10 +442,10 @@ int main()
 > 매개변수: int a, int b
 > 기능: 두 매개변수의 차를 계산하여 반환합니다.
 > 반환값: a와 b의 차
->> int sub(int a, int b) 
->> {
->> return a - b;
->> }
+ int sub(int a, int b)
+ {
+ return a - b;
+ }
 
 + main 함수
 > add 및 sub 함수를 호출하여 결과를 출력합니다.
@@ -454,13 +454,13 @@ int main()
 > printf 함수로 결과 출력: c와 d의 값 출력.
 
 
->> int main()
->> {
->> int c = add(2, 7);
->> int d = sub(10, 5);
->> printf("%d %d", c, d);
->> return 0;
->> }
+ int main()
+ {
+ int c = add(2, 7);
+ int d = sub(10, 5);
+ printf("%d %d", c, d);
+ return 0;
+ }
 
 
 # void 함수
@@ -468,36 +468,36 @@ int main()
 > 이 함수는 따로 return 값을 가지지 않습니다.
 
 + 예제: sample 함수
->> void sample()
->> {
->>  printf("Hello\n");
->> }
+ void sample()
+ {
+  printf("Hello\n");
+ }
 -> Hello라는 문자열을 출력합니다.
 
 # 매개변수를 가지는 함수
 > 매개변수로 정수형 변수를 가지는 함수와 정수 포인터 변수를 가지는 함수로 나뉩니다.
 
 + 예제: add 함수
->> void add(int a, int b)
->> {
->> int result = a + b;
->> printf("result = %d \n", result);
->> }
+ void add(int a, int b)
+ {
+ int result = a + b;
+ printf("result = %d \n", result);
+ }
 -> 두 정수 a와 b를 더한 결과를 출력합니다.
 
 + 예제: setAvalue 함수 (Call by Value)
->> void setAvalue(int a, int value)
->> {
->> a = value;
->> }
+ void setAvalue(int a, int value)
+ {
+ a = value;
+ }
 -> 정수형 변수 a에 value 값을 설정합니다.
 -> 값에 의한 호출(Call by Value)이므로 함수 종료 후 원본 변수는 변경되지 않습니다.
 
 + 예제: setAvalue2 함수 (Call by Reference)
->>void setAvalue2(int* a, int value)
->> {
->>   *a = value;
->> }
+ void setAvalue2(int* a, int value)
+ {
+   *a = value;
+ }
 -> 정수 포인터 변수 a가 가리키는 위치에 value 값을 설정합니다.
 -> 참조에 의한 호출(Call by Reference)이므로 함수 종료 후 원본 변수도 변경됩니다.
 
@@ -506,20 +506,20 @@ int main()
   
 + 예제: main 함수
 
-> int main()
-> {
-> sample();
-> add(1, 5);
-> 
-> int a = 7;
-> setAvalue(a, 10);
-> printf("a = %d\n", a); // 출력: a = 7
-> 
-> setAvalue2(&a, 10);
-> printf("a = %d\n", a); // 출력: a = 10
-> 
-> return 0;
-> }
+ int main()
+ {
+ sample();
+ add(1, 5);
+ 
+ int a = 7;
+ setAvalue(a, 10);
+ printf("a = %d\n", a); // 출력: a = 7
+ 
+ setAvalue2(&a, 10);
+ printf("a = %d\n", a); // 출력: a = 10
+ 
+ return 0;
+ }
 -> sample() 함수를 호출하여 Hello를 출력합니다.
 -> add(1, 5) 함수를 호출하여 1과 5를 더한 결과를 출력합니다.
 -> setAvalue(a, 10) 함수를 호출하여 a의 값을 변경하려 하지만, 값에 의한 호출이므로 a의 값은 변경되지 않습니다.
