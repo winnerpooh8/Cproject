@@ -101,9 +101,9 @@ int main()
  +선언과 초기화를 통시에 여러개를 진행 할 수 있습니다.
 		> int number3 = 50, number4 = 40;
   
-	+ C언어에서 10진수 이외의 8진수나 16진수를 지정할 수 있습니다.
-	> int octo = 15; // 숫자 앞에 0이 붙으면 8진수
-	> int hexa = 0x6; //숫자앞에 0x가 붙으면 16진수
++ C언어에서 10진수 이외의 8진수나 16진수를 지정할 수 있습니다.
+> int octo = 15; // 숫자 앞에 0이 붙으면 8진수
+> int hexa = 0x6; //숫자앞에 0x가 붙으면 16진수
  
 <hr/>
 
@@ -299,25 +299,30 @@ int main()
 # ex 코드 설명
 
 + 1차원 배열 예시
-> int arr[8] = {0, 1, 2, 3, 4, 5, 6, 7};
-> printf("배열의 크기: %d\n", sizeof(arr));
-> printf("배열의 요소 개수: %d\n", sizeof(arr) / sizeof(arr[0]));
+```c
+int arr[8] = {0, 1, 2, 3, 4, 5, 6, 7};
+printf("배열의 크기: %d\n", sizeof(arr));
+printf("배열의 요소 개수: %d\n", sizeof(arr) / sizeof(arr[0]));
+```
 >> 크기: sizeof(arr) → 배열 전체 바이트 수
 >> 요소 개수: sizeof(arr) / sizeof(arr[0])
 
 <hr/>
 
 + 2차원 배열 예시
+ ```c
 > int arr2D[2][3] = 
 > {
 >     {1, 2, 3},
 >     {4, 5, 6}
 > };
 >> 2행 3열 → 요소 총 6개
+ ```
 
 <hr/>
 
 + 반복문으로 2차원 배열 출력
+ ```c
 > for (int i = 0; i < 2; i++) 
 > {
 > for (int j = 0; j < 3; j++) 
@@ -326,8 +331,8 @@ int main()
 > }
 >  printf("\n");
 > }
->> i가 행, j가 열을 나타내며, 모든 칸을 순서대로 출력합니다.
-
+> i가 행, j가 열을 나타내며, 모든 칸을 순서대로 출력합니다.
+ ```
 <hr/>
 
 + 정리
@@ -367,8 +372,10 @@ int main()
 > 2-2간접 참조 연산자로 사용하면, 포인터가 가리키는 메모리 위치의 실제 값을 가져옵니다.
 
 + 예시:
-> *ptr_value = 7; // 포인터를 통해 value의 값을 7로 변경
-> printf("%d", *ptr_value); // value의 값 출력 (7)
+ ```c
+ *ptr_value = 7; // 포인터를 통해 value의 값을 7로 변경
+ printf("%d", *ptr_value); // value의 값 출력 (7)
+ ```
 
 + &(Ampersand) 연산자
 + 역할:
@@ -384,12 +391,14 @@ int main()
 > 사용 예시:
 > 초기에는 value의 값이 100이며, 포인터를 통해 값을 읽어올 수 있습니다.
 > *ptr_value를 통해 간접적으로 value에 접근할 수 있고, 이를 수정하면 실제 변수의 값도 변경됩니다.
->>  value = 5;
->> printf("value 의 값: %d\n", value);         // 출력: 5
->> printf("ptr_value 의 값: %d\n", *ptr_value);   // 출력: 5
+ ```c
+  value = 5;
+ printf("value 의 값: %d\n", value);         // 출력: 5
+ printf("ptr_value 의 값: %d\n", *ptr_value);   // 출력: 5
 
-> *ptr_value = 7;
-> printf("value 의 값: %d\n", value);           // 출력: 7
+ *ptr_value = 7;
+ printf("value 의 값: %d\n", value);           // 출력: 7
+ ```
 
 # 이중 및 삼중 포인터
 포인터는 다른 포인터의 주소를 저장할 수 있으며, 이를 통해 다단계 간접 참조가 가능합니다.
@@ -409,9 +418,336 @@ int main()
 >> 확장성:
 >> *의 개수를 늘려 n중 포인터로 확장할 수 있으나, 실무에서는 2중 포인터나 3중 포인터까지만 주로 사용됩니다.
 
-
-
 <hr/>
+
+# 함수
++ c언어 프로그램의 실행 단위를 의미합니다.
+> 1. main()은 언어에서 프로그램 실행 시 처음 실행되도록 설정된 함수립니다.
+> 2. 함수는 특정 하나의 기능을 수행하는 코드를 묶어서 하나의 명령어처럼 사용합니다.(ex.printf)
+> 3. 사용자는 c언어에서 제공해주는 함수 이외에 사용자 정의 함수를 정의, 구현할 수 있습니다.
+> 4. #include를 통해 라이브러리에서 제공해주는 헤더 파일을 코드에 연결해야 쓸 수있는 라이브러리 함수가 존재 합니다.
+
++ 함수 정의 형식(만드는방법)
+> 반환타입 함수명(매개변수)
+>> {
+>> 함수를 호출했을 때, 실행할 명령문  => 반환타입 함수명(매개변수) , { 실행할 명령문; }
+>> }
+> 반환 타입: 함수가 실행된 후 반환할 값의 데이터 타입.
+> 매개변수: 함수가 필요한 입력 값을 받기 위해 정의된 변수.
+> return 키워드를 사용해 함수의 실행 결과를 반환하고 함수를 종료합니다.
+
+
++ add 함수
+> 매개변수: int a, int b
+> 기능: 두 매개변수의 합을 계산하여 반환합니다.
+> 반환값: a와 b의 합
+
+ ```c
+ int add(int a, int b) {
+    int result = a + b;
+    return result;
+ }
+ ```
++ sub 함수
+> 매개변수: int a, int b
+> 기능: 두 매개변수의 차를 계산하여 반환합니다.
+> 반환값: a와 b의 차
+ ```c
+ int sub(int a, int b)
+ {
+ return a - b;
+ }
+ ```
+
++ main 함수
+> add 및 sub 함수를 호출하여 결과를 출력합니다.
+> add(2, 7) 호출: a와 b의 값은 각각 2와 7, 결과는 9.
+> sub(10, 5) 호출: a와 b의 값은 각각 10과 5, 결과는 5.
+> printf 함수로 결과 출력: c와 d의 값 출력.
+
+ ```c
+ int main()
+ {
+ int c = add(2, 7);
+ int d = sub(10, 5);
+ printf("%d %d", c, d);
+ return 0;
+ }
+ ```
+
+# void 함수
+> 반환 타입이 void인 함수를 의미합니다.
+> 이 함수는 따로 return 값을 가지지 않습니다.
+
++ 예제: sample 함수
+ void sample()
+ {
+  printf("Hello\n");
+ }
+-> Hello라는 문자열을 출력합니다.
+
+# 매개변수를 가지는 함수
+> 매개변수로 정수형 변수를 가지는 함수와 정수 포인터 변수를 가지는 함수로 나뉩니다.
+
++ 예제: add 함수
+```c
+ void add(int a, int b)
+ {
+ int result = a + b;
+ printf("result = %d \n", result);
+ }
+```
+-> 두 정수 a와 b를 더한 결과를 출력합니다.
+
++ 예제: setAvalue 함수 (Call by Value)
+ ```c
+ void setAvalue(int a, int value)
+ {
+ a = value;
+ }
+ ```
+-> 정수형 변수 a에 value 값을 설정합니다.
+-> 값에 의한 호출(Call by Value)이므로 함수 종료 후 원본 변수는 변경되지 않습니다.
+
++ 예제: setAvalue2 함수 (Call by Reference)
+> void setAvalue2(int* a, int value)
+> {
+>   *a = value;
+> }
+-> 정수 포인터 변수 a가 가리키는 위치에 value 값을 설정합니다.
+-> 참조에 의한 호출(Call by Reference)이므로 함수 종료 후 원본 변수도 변경됩니다.
+
+# main 함수
++ 여러 함수 호출 예제를 포함하고 있습니다.
+  
++ 예제: main 함수
+  
+```c
+ int main()
+ {
+ sample();
+ add(1, 5);
+ 
+ int a = 7;
+ setAvalue(a, 10);
+ printf("a = %d\n", a); // 출력: a = 7
+ 
+ setAvalue2(&a, 10);
+ printf("a = %d\n", a); // 출력: a = 10
+ 
+ return 0;
+ } 
+ ```
+
+  -> sample() 함수를 호출하여 Hello를 출력합니다.
+-> add(1, 5) 함수를 호출하여 1과 5를 더한 결과를 출력합니다.
+-> setAvalue(a, 10) 함수를 호출하여 a의 값을 변경하려 하지만, 값에 의한 호출이므로 a의 값은 변경되지 않습니다.
+-> setAvalue2(&a, 10) 함수를 호출하여 a의 값을 참조에 의한 호출로 변경합니다. 따라서 a의 값은 10으로 변경됩니다.
++ ∴ 값에 의한 호출(Call by Value): 함수 내부에서 값을 수정해도 원본 값은 변경되지 않습니다.
++ ∴ 참조에 의한 호출(Call by Reference): 함수 내부에서 값을 수정하면 원본 값도 변경됩니다.
+
+
+# 가변 인자 함수
++ 헤더 파일 포함
+> 가변 인자 함수를 사용하기 위해 #include <stdarg.h> 헤더 파일을 포함합니다.
+  
++ 가변 인자 함수 정의
+> printNumber 함수는 여러 개의 정수를 인자로 받아 출력합니다.
+> 함수 정의 시 ...을 사용하여 가변 인자를 받도록 합니다.
+
++ 가변 인자 처리 절차
+> 1. va_list args;를 선언하여 가변 인자 목록을 관리합니다.
+> 2. va_start(args, count);로 가변 인자 목록을 초기화합니다. 여기서 count는 인자의 개수입니다.
+> 3. va_arg(args, int);를 사용하여 가변 인자의 각각의 요소를 순차적으로 접근합니다.
+> 4. va_end(args);로 가변 인자 처리를 종료합니다.
+
+# 문자열 인자 처리
++ 문자열 인자를 받는 함수
+> greeting 함수는 문자열 인자를 받아 환영 메시지를 출력합니다.
+> char* name으로 문자열 인자를 받습니다.
+
+#배열 인자 처리
++ 배열을 인자로 받는 함수
+> printArray 함수는 정수 배열과 배열 크기를 인자로 받아 배열의 모든 요소를 출력합니다.
+> printArrayptr 함수도 동일한 기능을 수행합니다.
+
++ 배열 출력
+> for 반복문을 사용하여 배열의 각 요소를 출력합니다.
+
+# 메인 함수
++ 가변 인자 함수 호출
+> printNumber(5, 10, 20, 30, 40, 50);와 같이 다양한 개수의 정수를 출력합니다.
+> printNumber(3, 5, 6, 7);로 또 다른 예시를 출력합니다.
+
++문자열 인자 함수 호출
+> char name[] = "Grace";로 문자열을 선언하고, greeting(name);으로 출력합니다.
+
++ 배열 인자 함수 호출
+> int arr[] = { 1, 2, 3, 4, 5 };로 배열을 선언하고,
+> printArray(arr, 5);와 printArrayptr(arr, 5);로 배열의 요소를 출력합니다.
+
+# 함수 연습문제 풀이
+
++ 2차 방정식 풀기:
+
+X^2 - 2 = 2를 풀이하시오.
+힌트: 2차 방정식을 풀기 위해선 근의 공식을 이용합니다.
+해설: 2차 방정식은 보통 ax^2 + bx + c = 0 형태로 주어집니다. 여기서 a, b, c는 상수입니다. 근의 공식은 x = (-b ± sqrt(b^2 - 4ac)) / 2a 입니다. 이를 이용해 문제를 풉니다.
+
++ 순위 출력하기:
+
+주어진 숫자에 순위에 맞는 접미사(st, nd, rd, th)를 붙여 출력합니다.
+해설: 숫자 뒤에 붙는 접미사는 영어로 순위를 나타내는 방식입니다. 예를 들어, 1st, 2nd, 3rd, 4th와 같이 숫자에 따라 다르게 붙습니다.
+
++ 평균 구하기:
+
+주어진 숫자들의 평균을 구하는 함수 average를 구현하세요.
+힌트: printf를 활용하면 소수점 2자리까지 출력 가능.
+해설: 평균은 주어진 숫자들의 합을 숫자의 개수로 나눈 값입니다. 이를 함수로 구현하여, 소수점 2자리까지 출력합니다.
+
++ 홀수 판별하기:
+
+주어진 숫자가 홀수인지 판별하는 함수 isodd를 구현하세요.
+해설: 숫자가 2로 나누어 떨어지지 않으면 홀수입니다. 예를 들어, 3은 홀수, 4는 짝수입니다.
+
++ 소수 판별하기:
+
+주어진 숫자가 소수인지 판별하는 함수 getprime을 구현하세요.
+해설: 소수는 1과 자기 자신 외에 약수가 없는 숫자입니다. 예를 들어, 2, 3, 5는 소수지만 4는 소수가 아닙니다.
+
+ ```c
+#include <stdio.h>
+#include <stdarg.h>
+#include <math.h>
+
+// 2차 방정식 근의 공식 함수
+float Quadformula(double a, double b, double c) 
+{
+    double discriminant = b * b - 4 * a * c;
+    if (discriminant < 0) 
+    {
+        printf("실근이 존재하지 않습니다.\n");
+        return -1;
+    } else {
+        return (-b + sqrt(discriminant)) / (2 * a);
+    }
+}
+
+// 순위 출력 함수
+void printrank(int rank) {
+    if (rank % 10 == 1 && rank != 11) 
+    {
+        printf("%dst\n", rank);
+	} 
+     else if (rank % 10 == 2 && rank != 12) 
+    {
+        printf("%dnd\n", rank);
+    } 
+    else if (rank % 10 == 3 && rank != 13) 
+    {
+        printf("%drd\n", rank);
+    } 
+    else 
+    {
+        printf("%dth\n", rank);
+    }
+}
+
+// 평균 구하는 함수
+float average(int count, ...) 
+{
+    va_list args;
+    va_start(args, count);
+    int sum = 0;
+    for (int i = 0; i < count; i++) 
+    {
+        sum += va_arg(args, int);
+    }
+    va_end(args);
+    return (float)sum / count;
+    }
+
+// 홀수 판별 함수
+void isodd(int num) 
+{
+    if (num % 2 != 0) 
+    {
+        printf("YES\n");
+    } 
+    else 
+    {
+        printf("NO\n");
+    }
+}
+
+// 소수 판별 함수
+int getprime(int num) 
+{
+    if (num <= 1) return 0;
+    for (int i = 2; i <= sqrt(num); i++) 
+    {
+        if (num % i == 0) 
+	{
+            return 0;
+        }
+    }
+    return 1;
+    }
+
+int main() {
+    printf("root 4 %.2f\n", sqrt(4));
+
+double a = 1;
+double b = 2;
+double c = 3;
+ float result = Quadformula(a, b, c);
+
+int rank = 1;
+printrank(rank);
+rank = 2;
+printrank(rank);
+rank = 3;
+printrank(rank);
+
+float result1 = average(3, 100, 95, 90);
+float result2 = average(4, 100, 95, 90, 90);
+printf("Average 1: %.2f\n", result1);
+printf("Average 2: %.2f\n", result2);
+
+isodd(3);
+isodd(4);
+isodd(5);
+
+for (int i = 1; i <= 10; i++) 
+{
+if (getprime(i) == 1) 
+{
+printf("%d는 소수입니다.\n", i);
+}
+
+else 
+{
+printf("%d는 소수가 아닙니다.\n", i);
+}
+}
+ return 0;
+ }
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
